@@ -9,9 +9,8 @@ import org.springframework.core.convert.converter.Converter;
  * 
  * <p>Title: CustomDateConverter</p>
  * <p>Description: 自定义日期转换器</p>
- * <p>Company: www.itcast.com</p> 
- * @author	传智.燕青
- * @date	2015-3-20下午5:37:59
+ * @author	lhx
+ * @date	
  * @version 1.0
  */
 public class CustomDateConverter implements Converter<String, Date> {
