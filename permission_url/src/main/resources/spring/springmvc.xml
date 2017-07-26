@@ -51,7 +51,6 @@
 
 	<!--拦截器 -->
 	<mvc:interceptors>
-
 		<mvc:interceptor>
 			<!-- 用户认证拦截 -->
 			<mvc:mapping path="/**" />

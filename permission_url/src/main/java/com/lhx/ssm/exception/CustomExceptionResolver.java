@@ -14,8 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
  * 
  * <p>Title: CustomExceptionResolver</p>
  * <p>Description: 自定义异常处理器</p>
- * <p>Company: www.itcast.com</p> 
- * @author	传智.燕青
  * @date	2015-3-22下午2:57:42
  * @version 1.0
  */

@@ -18,9 +18,6 @@ import com.lhx.ssm.util.MD5;
  * 
  * <p>Title: SysServiceImpl</p>
  * <p>Description:认证和授权的服务接口 </p>
- * <p>Company: www.itcast.com</p> 
- * @author	传智.燕青
- * @date	2015-3-23上午11:31:43
  * @version 1.0
  */
 public class SysServiceImpl implements SysService {
@@ -95,8 +92,7 @@ public class SysServiceImpl implements SysService {
 
 	@Override
 	public List<SysPermission> findMenuListByUserId(String userid)
-			throws Exception {
-		
+			throws Exception {		
 		return sysPermissionMapperCustom.findMenuListByUserId(userid);
 	}
 

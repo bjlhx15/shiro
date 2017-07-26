@@ -10,8 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
  * 
  * <p>Title: HandlerInterceptor1</p>
  * <p>Description: 测试拦截器2</p>
- * <p>Company: www.itcast.com</p> 
- * @author	传智.燕青
  * @date	2015-3-22下午4:11:44
  * @version 1.0
  */

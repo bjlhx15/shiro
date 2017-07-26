@@ -15,11 +15,8 @@ import com.lhx.ssm.util.ResourcesUtil;
 
 /**
  * 
- * <p>Title: HandlerInterceptor1</p>
+ * <p>Title: PermissionInterceptor</p>
  * <p>Description: 授权拦截器</p>
- * <p>Company: www.itcast.com</p> 
- * @author	传智.燕青
- * @date	2015-3-22下午4:11:44
  * @version 1.0
  */
 public class PermissionInterceptor implements HandlerInterceptor {
@@ -35,8 +32,8 @@ public class PermissionInterceptor implements HandlerInterceptor {
 		
 		//判断是否是公开 地址
 		//实际开发中需要公开 地址配置在配置文件中
-		//从配置中取逆名访问url
 		
+		//1.从配置中取逆名访问url		
 		List<String> open_urls = ResourcesUtil.gekeyList("anonymousURL");
 		//遍历公开 地址，如果是公开 地址则放行
 		for(String open_url:open_urls){
@@ -46,7 +43,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			}
 		}
 		
-		//从配置文件中获取公共访问地址
+		//2.从配置文件中获取公共访问地址
 		List<String> common_urls = ResourcesUtil.gekeyList("commonURL");
 		//遍历公用 地址，如果是公用 地址则放行
 		for(String common_url:common_urls){
@@ -56,7 +53,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			}
 		}
 		
-		//获取session
+		//3.获取session
 		HttpSession session = request.getSession();
 		ActiveUser activeUser = (ActiveUser) session.getAttribute("activeUser");
 		//从session中取权限范围的url
@@ -70,7 +67,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			}
 		}
 		
-		//执行到这里拦截，跳转到无权访问的提示页面
+		//4.执行到这里拦截，跳转到无权访问的提示页面
 		request.getRequestDispatcher("/WEB-INF/jsp/refuse.jsp").forward(request, response);
 		
 		//如果返回false表示拦截不继续执行handler，如果返回true表示放行
