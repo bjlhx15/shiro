@@ -3,6 +3,7 @@ package com.lhx.ssm.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.lhx.ssm.exception.CustomException;
 import com.lhx.ssm.mapper.SysPermissionMapperCustom;
@@ -20,6 +21,7 @@ import com.lhx.ssm.util.MD5;
  * <p>Description:认证和授权的服务接口 </p>
  * @version 1.0
  */
+
 public class SysServiceImpl implements SysService {
 	
 	@Autowired
