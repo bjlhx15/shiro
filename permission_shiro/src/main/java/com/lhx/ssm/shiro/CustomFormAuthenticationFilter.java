@@ -1,11 +1,11 @@
 package com.lhx.ssm.shiro;
 
+import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 
 /**
  * 
@@ -20,7 +20,6 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter {
 	protected boolean onAccessDenied(ServletRequest request,
 			ServletResponse response) throws Exception {
 		//在这里进行验证码的校验
-		
 		//从session获取正确验证码
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		HttpSession session =httpServletRequest.getSession();
@@ -38,6 +37,4 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter {
 		}
 		return super.onAccessDenied(request, response);
 	}
-
-		
 }

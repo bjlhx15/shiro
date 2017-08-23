@@ -1,13 +1,11 @@
 package com.lhx.ssm.shiro;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.lhx.ssm.po.ActiveUser;
+import com.lhx.ssm.po.SysPermission;
+import com.lhx.ssm.po.SysUser;
+import com.lhx.ssm.service.SysService;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -15,10 +13,8 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.lhx.ssm.po.ActiveUser;
-import com.lhx.ssm.po.SysPermission;
-import com.lhx.ssm.po.SysUser;
-import com.lhx.ssm.service.SysService;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -41,6 +37,11 @@ public class CustomRealm extends AuthorizingRealm {
 	@Override
 	public void setName(String name) {
 		super.setName("customRealm");
+	}
+	// 支持什么类型的token
+	@Override
+	public boolean supports(AuthenticationToken token) {
+		return token instanceof UsernamePasswordToken;
 	}
 
 	// 用于认证
